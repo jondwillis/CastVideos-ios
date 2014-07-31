@@ -134,6 +134,11 @@ static NSString *const kReceiverAppID = @"4F8B3483";  //Replace with your app id
   [self.deviceManager leaveApplication];
   // If you want to force application to stop, uncomment below
   //[self.deviceManager stopApplication];
+  
+  if (_features & ChromecastControllerFeatureHWVolumeControl) {
+      [self.volumeChangeController releaseVolumeButtons];
+  }
+  
   [self.deviceManager disconnect];
 }
 
